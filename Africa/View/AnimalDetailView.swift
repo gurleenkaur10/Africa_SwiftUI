@@ -44,9 +44,34 @@ struct AnimalDetailView: View {
                 }
                 .padding(.horizontal)
                 //facts
+                Group{
+                    HeadingView(headingImage: "questionmark.circle", headingText: "Did you know?")
+                    InsetFactView(animal: animal)
+                }
+                .padding(.horizontal)
                 //description
+                Group{
+                    HeadingView(headingImage: "info.circle", headingText: "All about \(animal.name)")
+                    Text(animal.description)
+                        .multilineTextAlignment(.leading)
+                        .layoutPriority(1)
+                }
+                .padding(.horizontal)
                 //map
+                Group{
+                    HeadingView(headingImage: "map", headingText: "National Parks")
+                    InsetMapView()
+                }
+                .padding(.horizontal)
+                
                 //link
+                Group{
+                    HeadingView(headingImage: "books.vertical", headingText: "Learn More")
+                    ExternalWeblinkView(animal: animal)
+                }
+                .padding(.horizontal)
+                
+                
             }//vstack
             .navigationBarTitle("Learn about \(animal.name)", displayMode: .inline)
         }// Scroll
@@ -57,7 +82,7 @@ struct AnimalDetailView_Previews: PreviewProvider {
     static let animal: [Animal] = Bundle.main.decode("animals.json")
     static var previews: some View {
         NavigationView{
-            AnimalDetailView(animal: animal[1])
+            AnimalDetailView(animal: animal[5])
         }
         
     }
