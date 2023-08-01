@@ -28,7 +28,7 @@ struct MotionAnimationView: View {
     func randomScale() -> CGFloat{
         return CGFloat(Double.random(in: 0.1...2.0))
     }
-
+    
     
     // random speed
     func randomSpeed() -> Double{
@@ -53,7 +53,7 @@ struct MotionAnimationView: View {
                         .position(
                             x:  randomCoodinate(max: geometry.size.width),
                             y: randomCoodinate(max: geometry.size.height)
-                    )
+                        )
                         .animation(
                             Animation.interpolatingSpring(stiffness: 0.5, damping: 0.5)
                                 .repeatForever()
